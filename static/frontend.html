@@ -25,16 +25,18 @@
 
 <section id="todo-section" class="todo-list">
 	<section class="header themed padded">
-		<h1 id="title"></h1>
-		<div id="todo__action__bar">
+		<div class="title-menu">
+			<h1 id="title"></h1>
 			<button type="button">☰</button>
-			<div class="todo__action__color">
-				<button type="button" style="background:tan"></button>
-				<button type="button" style="background: lightseagreen;"></button>
-				<button type="button" style="background: mediumpurple;"></button>
-				<button type="button" style="background:slategray"></button>
-				<button type="button" style="background:darkslategrey"></button>
-			</div>
+		</div>
+		<div id="todo__action__bar" class="hidden">
+		  <div class="todo__action__color">
+			<button type="button" style="background:tan"></button>
+			<button type="button" style="background: lightseagreen;"></button>
+			<button type="button" style="background: mediumpurple;"></button>
+			<button type="button" style="background:slategray"></button>
+			<button type="button" style="background:darkslategrey"></button>
+		  </div>
 		</div>
 		<label class="todo todo__form">
 			<form action="/api/create" method="POST" id="form" autocomplete="false">

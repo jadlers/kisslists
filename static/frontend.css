@@ -12,12 +12,19 @@ html {
     height: 100%;
     display: flex;
     font-family: 'Helvetica';
+    box-sizing: border-box;
 }
 
 body {
     opacity: 0.5;
     width: 100%;
     margin: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .hidden {
@@ -208,31 +215,34 @@ span.todo__icon {
     box-shadow: 0px 4px 5px -5px rgb(0 0 0 / 67%);
 }
 
-#title {
-    text-align: center;
+.title-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#todo__action__bar {
-    text-align: right;
+.title-menu h1 {
+    flex-grow: 1;
 }
 
-#todo__action__bar button {
+.title-menu button {
+    flex-grow: 0;
     background: inherit;
     font-size: 2em;
     border: none;
     outline: none;
     cursor: pointer;
-    margin-top: -1em;
 }
 
-#todo__action__bar .todo__action__color {
-    display: none;
+.todo__action__color {
+    display: flex;
+    justify-content: space-around;
 }
-#todo__action__bar .todo__action__color button {
-    width: 1.3em;
-    height: 1.3em;
-    margin-top: 1em;
-    margin-bottom: 2em;
+
+.todo__action__color button {
+    width: 96px;
+    height: 96px;
+    cursor: pointer;
     border-radius: 50%;
     border: 1px solid #555;
 }

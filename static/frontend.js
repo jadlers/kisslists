@@ -18,8 +18,8 @@
         input: $('#todo-write'),
         todoList: $('#todo-list'),
         doneList: $('#done-list'),
-        colorsBar: $('.todo__action__color'),
-        actionsBtn: $('#todo__action__bar > button'),
+        actionBar: $('#todo__action__bar'),
+        actionsBtn: $('.title-menu button'),
         listSection: $('#list-section'),
         todoSection: $('#todo-section'),
     
@@ -37,15 +37,27 @@
 
             // Toggle the menu when press the nemu button
             this.actionsBtn.addEventListener('click', _ => {
-                const visible = this.colorsBar.style.display == 'block';
-                this.colorsBar.style.display = visible ? 'none' : 'block'
+                const visible = !this.actionBar.classList.contains("hidden")
                 this.actionsBtn.innerText = visible ? '☰' : '—'
+                if (visible) {
+                    this.hide(this.actionBar)
+                } else {
+                    this.show(this.actionBar);
+                }
+                // this.colorsBar.style.display = visible ? 'none' : 'block'
             })
+
             // Close the menu when press anywhere else
             this.html.addEventListener('click', evt => {
-                if (evt.target.tagName.toLowerCase() != 'button')
-                    this.colorsBar.style.display = 'none', {capture:true}
-            })
+                if (evt.target.tagName.toLowerCase() != 'button') {
+                    const visible = !this.actionBar.classList.contains("hidden")
+                    if (visible) {
+                        this.actionsBtn.innerText = visible ? '☰' : '—'
+                        this.hide(this.actionBar)
+                    }
+                }
+            }, { capture: true })
+
             // Change theme buttons
             $$('.todo__action__color button').forEach(el => {
                 el.addEventListener('click', evt => this.onChangeTheme(evt.target.style.backgroundColor))
