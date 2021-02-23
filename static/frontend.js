@@ -231,18 +231,19 @@
         },
 
         itemTemplate(item) {
+            // <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 25"
+            // <use xlink:href="#todo__line" class="todo__line"></use>
             return `
             <label class="todo" id="item-${item.itemId}">
                 <input class="todo__state" type="checkbox" id="check-${item.itemId}" ${item.isChecked ? 'checked' : ''} />
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 25"
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 25 25"
                     class="todo__icon">
-                    <use xlink:href="#todo__line" class="todo__line"></use>
                     <use xlink:href="#todo__box" class="todo__box"></use>
                     <use xlink:href="#todo__check" class="todo__check"></use>
                     <use xlink:href="#todo__circle" class="todo__circle"></use>
                 </svg>
-                <div class="todo__text">${item.text}</div>
-                <svg class="todo__delete" viewBox="0 0 24 24" width="24" height="24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                <span class="todo__text">${item.text}</span>
+                <svg class="todo__delete" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>

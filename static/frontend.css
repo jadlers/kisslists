@@ -39,9 +39,10 @@ form {
 }
 
 .todo {
-    display: block;
-    position: relative;
-    padding: 1em 1em 1em 16%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1em;
     margin: 0 auto;
     cursor: pointer;
 }
@@ -56,41 +57,30 @@ form {
 }
 
 .todo__state {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
+    display: none;
 }
 
 .todo__text {
+    flex-grow: 1;
     transition: all 0.4s linear 0.4s;
 }
 
 .todo__icon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    margin: auto;
+    height: 1.4em;
+    flex-grow: 0;
+    padding: 5px;
     fill: none;
     stroke: #efefef;
     stroke-width: 1.5px;
     stroke-linejoin: round;
     stroke-linecap: round;
-    width: calc(100% - 2.8em); /* for delete btn */
-}
-
-span.todo__icon {
-    font-size: 2em;
-    top: 10px;
-    padding-left: 3%;
 }
 
 .todo__line,
 .todo__box,
 .todo__check {
+    height: 100%;
+    width: 100%;
     transition: stroke-dashoffset 0.2s cubic-bezier(0.9, 0, 0.5, 1);
 }
 
@@ -189,7 +179,7 @@ span.todo__icon {
     border: none;
     outline: none;
     display: block;
-    width: 100%;
+    flex-grow: 1;
 }
 
 .todo__write::placeholder {
@@ -197,11 +187,10 @@ span.todo__icon {
 }
 
 .todo__delete {
+    height: 1.4em;
     stroke: #666;
     padding: 5px;
-    float: right;
-    top: -1.25em;
-    position: relative;
+    flex-grow: 0;
 }
 .todo__delete:focus,
 .todo__delete:hover {
